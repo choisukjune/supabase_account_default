@@ -1,13 +1,70 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS + CSJNode</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Vite + React + TS + CSJNode</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				margin: 0;
+				padding: 0;
+				background-color: #f0f0f0;
+				color: #333;
+			}
+
+			#root {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+				text-align: center;
+			}
+
+			h1 {
+				font-size: 2.5rem;
+				margin-bottom: 20px;
+				color: #4a90e2;
+			}
+
+			p {
+				font-size: 1.2rem;
+				margin: 0 0 20px;
+			}
+
+			a {
+				text-decoration: none;
+				color: #4a90e2;
+				font-weight: bold;
+			}
+
+			a:hover {
+				text-decoration: underline;
+			}
+
+			/* Add a simple button style */
+			.button {
+				padding: 10px 20px;
+				background-color: #4a90e2;
+				color: white;
+				border: none;
+				border-radius: 5px;
+				cursor: pointer;
+				transition: background-color 0.3s;
+			}
+
+			.button:hover {
+				background-color: #357ab8;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="root">
+			<h1>Welcome to Vite + React + TS + CSJNode</h1>
+			<p>Your application is running smoothly!</p>
+			<a href="#" class="button">Get Started</a>
+		</div>
+		<script type="module" src="/src/main.tsx"></script>
+	</body>
 </html>
