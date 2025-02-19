@@ -24,16 +24,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       const { error } = await supabase.auth.signOut();
       if (error) throw error;
       setSession(null);
-      toast.success('로그아웃되었습니다.');
+      toast.success('✨ You have been signed out.');
     } catch (error: any) {
       console.error('Sign out error:', error);
       // If we get a user_not_found error, the session is already invalid
       // so we should clear it locally
       if (error.message?.includes('user_not_found')) {
         setSession(null);
-        toast.success('로그아웃되었습니다.');
+        toast.success('✨ You have been signed out.');
       } else {
-        toast.error('로그아웃 중 오류가 발생했습니다.');
+        toast.error('✨ An error occurred while signing out.');
       }
     }
   };

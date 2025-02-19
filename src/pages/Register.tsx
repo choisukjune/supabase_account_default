@@ -13,14 +13,14 @@ export default function Register() {
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (password !== confirmPassword) {
-      toast.error('비밀번호가 일치하지 않습니다.');
+      toast.error('❌ Passwords do not match!');
       return;
     }
 
     if (password.length < 6) {
-      toast.error('비밀번호는 최소 6자 이상이어야 합니다.');
+      toast.error('⚠️ Password must be at least 6 characters long.');
       return;
     }
 
@@ -34,18 +34,18 @@ export default function Register() {
 
       if (error) {
         if (error.message.includes('email')) {
-          toast.error('이미 사용 중인 이메일입니다.');
+          toast.error('📧 Email is already in use!');
         } else {
-          toast.error('회원가입에 실패했습니다. 다시 시도해주세요.');
+          toast.error('❌ Registration failed. Please try again.');
         }
         return;
       }
 
-      toast.success('회원가입이 완료되었습니다!');
+      toast.success('🎉 Registration successful! Welcome aboard!');
     } catch (err) {
       const error = err as AuthError;
       console.error('Registration error:', error.message);
-      toast.error('회원가입 중 오류가 발생했습니다. 다시 시도해주세요.');
+      toast.error('❌ An error occurred during registration. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -56,13 +56,13 @@ export default function Register() {
       <div className="max-w-md w-full space-y-8">
         <div className="text-center">
           <UserPlus className="mx-auto h-12 w-12 text-indigo-600" />
-          <h2 className="mt-6 text-3xl font-extrabold text-gray-900">회원가입</h2>
+          <h2 className="mt-6 text-3xl font-extrabold text-gray-900">Sign Up 📝</h2>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleRegister}>
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
               <label htmlFor="email" className="sr-only">
-                이메일
+                Email
               </label>
               <input
                 id="email"
@@ -70,14 +70,14 @@ export default function Register() {
                 type="email"
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="이메일"
+                placeholder="Email Address 📧"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div>
               <label htmlFor="password" className="sr-only">
-                비밀번호
+                Password
               </label>
               <input
                 id="password"
@@ -85,14 +85,14 @@ export default function Register() {
                 type="password"
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="비밀번호"
+                placeholder="Password 🔒"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <div>
               <label htmlFor="confirmPassword" className="sr-only">
-                비밀번호 확인
+                Confirm Password
               </label>
               <input
                 id="confirmPassword"
@@ -100,7 +100,7 @@ export default function Register() {
                 type="password"
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="비밀번호 확인"
+                placeholder="Confirm Password 🔑"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
@@ -113,13 +113,13 @@ export default function Register() {
               disabled={loading}
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
             >
-              {loading ? '처리 중...' : '회원가입'}
+              {loading ? 'Processing... ⏳' : 'Sign Up 🚀'}
             </button>
           </div>
 
           <div className="text-sm text-center">
             <Link to="/login" className="font-medium text-indigo-600 hover:text-indigo-500">
-              이미 계정이 있으신가요? 로그인
+              Already have an account? Log In here 👈
             </Link>
           </div>
         </form>
